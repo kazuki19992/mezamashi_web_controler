@@ -1,0 +1,9 @@
+{
+    "name": "お目覚めコントローラー",
+    "short_name": "お目覚め",
+    "theme_color": "#7a57d5",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/index.html"
+}
