@@ -4,7 +4,7 @@
       <div class="hero-body">
         <div class="container">
           <h1 class="title">
-            Mezamashi_Controller
+            お目覚め
           </h1>
           <h2 class="subtitle">
             設定時刻の確認、変更が可能です
