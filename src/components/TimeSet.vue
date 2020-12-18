@@ -19,6 +19,12 @@
           <p class="title" v-if="setTime">{{setTime}}</p>
         </div>
       </div>
+      <div class="level-item has-text-centered">
+        <div>
+          <p class="heading">ステータス</p>
+          <p class="title" v-if="setStatus">{{setStatus}}</p>
+        </div>
+      </div>
     </nav>
     <section class="hero">
       <div class="hero-body">
@@ -63,7 +69,8 @@ export default {
     return{
       timeInput: null,
       setTime: null,
-      checkIcon: false
+      checkIcon: false,
+      setStatus: null
     }
   },
   methods:{
@@ -111,6 +118,12 @@ export default {
         console.log(Response.status);
         console.log(Response.data);
         then.setTime = Response.data.setTime;
+        const that = this;
+        if(Response.data.stopFlg === true){
+          that.setStatus = "無効";
+        }else{
+          that.setStatus = "有効";
+        }
       })
     }
   },
@@ -119,7 +132,14 @@ export default {
     axios.get(apiUrl+'/echo').then(Response => {
       console.log(Response.status);
       console.log(Response.data);
+      console.log(Response.data.stopFlg);
       this.setTime = Response.data.setTime;
+      const that = this;
+      if(Response.data.stopFlg === true){
+        that.setStatus = "無効";
+      }else{
+        that.setStatus = "有効";
+      }
     })
   }
 
